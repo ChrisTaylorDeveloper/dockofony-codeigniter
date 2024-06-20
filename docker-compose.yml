@@ -2,14 +2,13 @@ services:
 
   web:
     ports:
-      - "${PORT_WEB_HOST}:${PORT_WEB_CONTAINER}"
+      - "${PORT_WEB_HOST}:80"
     volumes:
       - ${VOLUME_WEB}:/var/www/html
     build:
       context: ./web
       args:
         - XDEBUG=${XDEBUG}
-        - PHP_IMAGE_TAG=${PHP_IMAGE_TAG}
 
   db:
     image: mariadb:10.11.7
